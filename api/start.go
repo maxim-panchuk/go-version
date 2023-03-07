@@ -14,6 +14,12 @@ func Start(pool *pgxpool.Pool) {
 	kafka.ListenForServiceInfo(metadataService, settingService)
 }
 
+func LatchVersion(objectSysName, objectId, jsonedObject string) error {
+	saveVersion := GetSaveVersion()
+	err := saveVersion.LatchVersion(objectSysName, objectId, jsonedObject)
+	return err
+}
+
 // func initRepo() *pgxpool.Pool {
 // 	config, err := pgxpool.ParseConfig("postgres://postgres:kilibok47Hromos@localhost:5432/diasoft_versioning")
 // 	if err != nil {
