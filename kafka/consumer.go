@@ -6,7 +6,6 @@ import (
 	"log"
 	"time"
 
-	"github.com/maxim-panchuk/go-version/config"
 	"github.com/maxim-panchuk/go-version/model"
 	"github.com/maxim-panchuk/go-version/service"
 	"github.com/segmentio/kafka-go"
@@ -14,9 +13,10 @@ import (
 
 func ListenForServiceInfo(metadataService service.VersionMetadataService, settingService service.VersionSettingService) {
 
-	serviceName := config.GetServiceName()
+	//serviceName := config.GetServiceName()
 	// kafkaHost := config.GetKafkaHost()
 	// kafkaPort := config.GetKafkaPort()
+	serviceName := "some_service"
 
 	r := kafka.NewReader(kafka.ReaderConfig{
 		Brokers:     []string{"localhost:9092"},
