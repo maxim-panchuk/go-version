@@ -15,11 +15,11 @@ import (
 func ListenForServiceInfo(metadataService service.VersionMetadataService, settingService service.VersionSettingService) {
 
 	serviceName := config.GetServiceName()
-	kafkaHost := config.GetKafkaHost()
-	kafkaPort := config.GetKafkaPort()
+	// kafkaHost := config.GetKafkaHost()
+	// kafkaPort := config.GetKafkaPort()
 
 	r := kafka.NewReader(kafka.ReaderConfig{
-		Brokers:     []string{kafkaHost + ":" + kafkaPort},
+		Brokers:     []string{"localhost:9092"},
 		Topic:       "dqCompositionAfterStartLinkBusinessObject",
 		Partition:   0,
 		MinBytes:    10e3,
