@@ -11,7 +11,7 @@ func Start(pool *pgxpool.Pool) {
 	repo := db.GetRepo(pool)
 	metadataService := service.GetVersionMetadateService()
 	settingService := service.NewVersionSettingServiceImpl(repo, metadataService)
-	kafka.ListenForServiceInfo(metadataService, settingService)
+	go kafka.ListenForServiceInfo(metadataService, settingService)
 }
 
 func LatchVersion(objectSysName, objectId, jsonedObject string) error {
