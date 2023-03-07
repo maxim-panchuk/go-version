@@ -29,8 +29,9 @@ func GetVersionMetadateService() *VersionMetadataServiceImpl {
 
 func newVersionMetadataService() *VersionMetadataServiceImpl {
 	return &VersionMetadataServiceImpl{
-		boIdSysNameMap: make(map[int64]string, 0),
-		boInfoMap:      make(map[string]interface{}, 0),
+		microserviceSysName: "some_service",
+		boIdSysNameMap:      make(map[int64]string, 0),
+		boInfoMap:           make(map[string]interface{}, 0),
 	}
 }
 
@@ -41,8 +42,11 @@ func (s *VersionMetadataServiceImpl) ApplyServiceInfo(info *model.ServiceInfo) {
 		return
 	}
 
+	if info.MicroserviceSysName != s.microserviceSysName {
+		return
+	}
+
 	s.serviceInfo = info
-	s.microserviceSysName = info.MicroserviceSysName
 
 	for _, objectInfo := range info.BusinessObjectInfo {
 		s.processObjectInfo(objectInfo)
