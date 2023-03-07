@@ -1,4 +1,4 @@
-package app
+package api
 
 import (
 	"github.com/jackc/pgx/v4/pgxpool"

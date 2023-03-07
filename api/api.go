@@ -5,11 +5,11 @@ import (
 	"sync"
 	"time"
 
-	"gitflex.diasoft.ru/mvp-go/golang-libraries/go-version/db"
-	"gitflex.diasoft.ru/mvp-go/golang-libraries/go-version/domain"
-	"gitflex.diasoft.ru/mvp-go/golang-libraries/go-version/model"
-	"gitflex.diasoft.ru/mvp-go/golang-libraries/go-version/service"
 	"github.com/google/uuid"
+	"github.com/maxim-panchuk/go-version/db"
+	"github.com/maxim-panchuk/go-version/domain"
+	"github.com/maxim-panchuk/go-version/model"
+	"github.com/maxim-panchuk/go-version/service"
 )
 
 type SaveVersion interface {
